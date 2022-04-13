@@ -13,11 +13,17 @@
     <p> Welcome to the Our site</p>
     <div>
       {%if core.is_authenticated %}
-         <button type="LogOut">Logout</button>
+         <a href="{%url 'logout' %}">
+         <button>Logout</button>
+       </a>
 
       {% else %}
-         <button type="SignUp">Sign Up</button>
-         <button type="LogIn">LogIn</button>
+         <a href="{%url 'signup' %}">
+          <button>Sign Up</button>
+         </a>
+         <a href="{% url 'login'%}">
+         <button>LogIn</button>
+         </a>
       {% endif %}
     </div>
   </body>
