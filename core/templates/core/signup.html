@@ -4,9 +4,12 @@
 <form method="post">
     {% csrf_token %}
     {{form}}
-    <input type="submit" value="Register">
+
+    <br><input type="submit" value="Register">
 </form>
 
-<a href="{% url 'login' %}">Back to login</a>
-<a href="{% url 'home' %}">Back to Home</a>
+<a href="{% url 'login' %}">
+<button>Back to login</button></a>
+<a href="{% url 'home' %}">
+<button>Back to Home</button></a>
 {% endblock %}
