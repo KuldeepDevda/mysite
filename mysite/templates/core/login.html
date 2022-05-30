@@ -1,7 +1,8 @@
+{% extends 'core/base.html' %}
 {% block content %}
   <h2>Login</h2>
 
-    <form method='post'>
+    <form method='POST'>
       {% csrf_token %}
       <table>
         {{ form.as_p }}
@@ -11,7 +12,7 @@
         </tr>
       </table>
     </form>
-    <a href="{% url 'core:signup' %}">
-    <button>Sign Up</button>
-         </a>
+  <a href="{% url 'core:signup' %}">
+  <button>Sign Up</button>
+  </a>
 {% endblock %}

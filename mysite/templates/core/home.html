@@ -1,3 +1,4 @@
+{% extends 'core/base.html' %}
 <html>
 <head>
   <style>
@@ -9,10 +10,10 @@
 </head>
   {% block title %}Home{% endblock %}
   <body>
+    {% if user.is_authenticated %}
     <h1>Hello, {{user.username}}!</h1>
-    {%if user.is_authenticated %}
     <div>
-       <a href="{% url 'login' %}">
+       <a href="{% url 'image' %}">
          <button>Create Post</button>
        </a>
       
@@ -22,15 +23,13 @@
       
     </div>
 
-      {% else %}
-         <p> Please LogIn or SingUp First </p>
-         <a href="{% url 'core:signup' %}">
-          <button>Sign Up</button>
-         </a><br>
-         <br><a href="{% url 'login' %}">
-         <button>LogIn</button>
-
-         </a>
+    {% else %}
+       <p> Please LogIn or SingUp First </p>
+       <a href="{% url 'core:signup' %}">
+        <button>Sign Up</button>
+       </a><br>
+       <br><a href="{% url 'core:login' %}">
+       <button>LogIn</button></a>
       {% endif %}
     </div>
   </body>
