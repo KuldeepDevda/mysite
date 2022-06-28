@@ -15,38 +15,38 @@ def home(request):
     return render(request, "core/home.html")
 
 
-class SignUp(CreateView):
-    form_class = UserCreationForm
-    success_url = reverse_lazy("login")
-    template_name = "core/signup.html"
+# class SignUp(CreateView):
+#     form_class = UserCreationForm
+#     success_url = reverse_lazy("login")
+#     template_name = "core/signup.html"
 
 
-class PostCreateView(LoginRequiredMixin, CreateView):
-    model = Post
-    fields = ["title", "content", "image"]
+# class PostCreateView(LoginRequiredMixin, CreateView):
+#     model = Post
+#     fields = ["title", "content", "image"]
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
 
-        return super().form_valid(form)
+#         return super().form_valid(form)
 
-class HomeView(CreateView):
-    model = Post
-    template_name = 'core/home.html'
-    form_class = DocumentForm
+# class HomeView(CreateView):
+#     model = Post
+#     template_name = 'core/home.html'
+#     form_class = DocumentForm
     
 
-    def get(self, request, *args, **kwargs):
-        form = DocumentForm
-        return render(request,'core/home.html', {'form': form})
+#     def get(self, request, *args, **kwargs):
+#         form = DocumentForm
+#         return render(request,'core/home.html', {'form': form})
   
-    def post(self, request, *args, **kwargs):
-        form = DocumentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResonseRedirect(reverse('list-view'))
-        else:
-            return render(request, 'core/home.html', {'img':img,'form': form})
+#     def post(self, request, *args, **kwargs):
+#         form = DocumentForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return HttpResonseRedirect(reverse('list-view'))
+#         else:
+#             return render(request, 'core/home.html', {'img':img,'form': form})
 
 
 
