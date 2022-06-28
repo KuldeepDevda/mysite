@@ -33,7 +33,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 class HomeView(CreateView):
     model = Post
     template_name = 'core/home.html'
-    form_class = DocumentForm
+    form_class = DocumentForm111
     
 
     def get(self, request, *args, **kwargs):
