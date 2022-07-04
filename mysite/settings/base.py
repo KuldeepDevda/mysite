@@ -25,7 +25,7 @@ PYTHONPATH = sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'django-insecure-71a(u1mlc!uv)1bvtjt+kqz7w)!40ojere_9u=($skqfd^*tk0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
