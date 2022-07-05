@@ -29,9 +29,9 @@ SECRET_KEY = 'django-insecure-71a(u1mlc!uv)1bvtjt+kqz7w)!40ojere_9u=($skqfd^*tk0
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG=config('DEBUG',default=False,cast=bool)
+DEBUG=config('DEBUG',default=True,cast=bool)
 
-ALLOWED_HOSTS = ['myappa2z.herokuapp.com']
+ALLOWED_HOSTS = ['myappa2z.herokuapp.com','*']
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
