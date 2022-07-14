@@ -24,7 +24,7 @@ from core import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('core.urls'), name='core'),
-    path('core/', include('core.urls')),
+    path('', include('core.urls')),
     path('images/', views.PostCreateView.as_view(), name='image')
 ]
 

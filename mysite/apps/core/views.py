@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView
 from .forms import DocumentForm
 from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
-
+from django.views.generic import ListView
 
 # Create your views here.
 def home(request):
@@ -30,23 +30,23 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
         return super().form_valid(form)
 
-class HomeView(CreateView):
+class HomeView(ListView):
     model = Post
     template_name = 'core/home.html'
-    form_class = DocumentForm
+    # form_class = DocumentForm
     
 
-    def get(self, request, *args, **kwargs):
-        form = DocumentForm
-        return render(request,'core/home.html', {'form': form})
+    # def get(self, request, *args, **kwargs):
+    #     form = DocumentForm
+    #     return render(request,'core/home.html', {'form': form})
   
-    def post(self, request, *args, **kwargs):
-        form = DocumentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResonseRedirect(reverse('list-view'))
-        else:
-            return render(request, 'core/home.html', {'img':img,'form': form})
+    # def post(self, request, *args, **kwargs):
+    #     form = DocumentForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         return HttpResonseRedirect(reverse('list-view'))
+    #     else:
+    #         return render(request, 'core/home.html', {'img':img,'form': form})
 
 
 
